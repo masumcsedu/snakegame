@@ -49,35 +49,6 @@ class BoardMaster {
         moveSnake(direction: direction)
     }
     
-    func stopBoard() {
-        stopFoodTimer()
-    }
-    
-    func clearBoard() {
-        stopBoard()
-        removeFoods()
-        removeSnake()
-        removeBlock()
-        cellList = BoardUtility.createCellList()
-    }
-    
-    func startFoodTimer() {
-        timer = Timer.scheduledTimer(timeInterval: Constant.foodAddInterval,
-                                     target: self,
-                                     selector: #selector(tick),
-                                     userInfo: nil,
-                                     repeats: true)
-    }
-    
-    @objc func tick() {
-        addFoodOnBoard()
-    }
-    
-    func stopFoodTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
-
     func update(interval: TimeInterval) {
         
         var progress = CGFloat(interval / Constant.animationDuration)
@@ -88,63 +59,14 @@ class BoardMaster {
             return
         }
         
+        // Move Board along with snake movement
         if let nextPosition = nextPosition {
             let position = BoardUtility.interpolate(start: currentPosition, end: nextPosition, progress: progress)
             boardNode?.position = position
         }
         
+        // Move snake
         snake?.update(interval: interval, progress: progress)
-    }
-    
-    func finishMove() {
-        if let nextPosition = nextPosition {
-            currentPosition = nextPosition
-            self.nextPosition = nil
-        }
-        snake?.finishMove()
-    }
-    
-    func addSnakeOnBoard(direction: SnakeDirection) {
-        
-        let centerRow: Int = Constant.boardRow / 2
-        let centerColumn: Int = Constant.boardColumn / 2
-        
-        let headCell = cellList[centerRow][centerColumn]
-        let bodyCell = cellList[centerRow + 1][centerColumn]
-        let tailCell = cellList[centerRow + 2][centerColumn]
-        
-        let head = SnakeHead(cell: headCell, direction: direction, parentNode: boardNode)
-        let body = SnakeBody(cell: bodyCell, direction: direction, parentNode: boardNode)
-        let tail = SnakeTail(cell: tailCell, direction: direction, parentNode: boardNode, previousOrgan: body)
-        
-        head.next = body
-        body.next = tail
-        
-        let snake = Snake(head: head, tail: tail)
-        snake.placeOnBoard()
-        
-        currentPosition = headCell.position
-        
-        self.snake = snake
-    }
-    
-    func removeSnake() {
-        snake?.destroy()
-    }
-    
-    func addFoodOnBoard() {
-        
-        guard foodList.count < Constant.maxFoodCountOnBoard else {
-            return
-        }
-        
-        guard let cell = BoardUtility.findRandomEmptyCell(cellList: cellList) else {
-            return
-        }
-        
-        let food = Food(cell: cell, parentNode: boardNode)
-        food.placeOnCell()
-        foodList.append(food)
     }
     
     func eatFood(cell: Cell) {
@@ -163,11 +85,6 @@ class BoardMaster {
         
         food.destroy()
         foodList.remove(at: index)
-    }
-    
-    func removeFoods() {
-        foodList.forEach {$0.destroy()}
-        foodList.removeAll()
     }
     
     func moveSnake(direction: SnakeDirection) {
@@ -198,7 +115,92 @@ class BoardMaster {
         nextPosition = nextCell.position.negetive()
     }
     
-    func addBlockOnBoard() {
+    func finishMove() {
+        if let nextPosition = nextPosition {
+            currentPosition = nextPosition
+            self.nextPosition = nil
+        }
+        snake?.finishMove()
+    }
+    
+    func stopBoard() {
+        stopFoodTimer()
+    }
+    
+    func clearBoard() {
+        stopBoard()
+        removeFoods()
+        removeSnake()
+        removeBlock()
+        cellList = BoardUtility.createCellList()
+    }
+    
+    private func startFoodTimer() {
+        timer = Timer.scheduledTimer(timeInterval: Constant.foodAddInterval,
+                                     target: self,
+                                     selector: #selector(tick),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    @objc private func tick() {
+        addFoodOnBoard()
+    }
+    
+    private func stopFoodTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+
+    private func addSnakeOnBoard(direction: SnakeDirection) {
+        
+        let centerRow: Int = Constant.boardRow / 2
+        let centerColumn: Int = Constant.boardColumn / 2
+        
+        let headCell = cellList[centerRow][centerColumn]
+        let bodyCell = cellList[centerRow + 1][centerColumn]
+        let tailCell = cellList[centerRow + 2][centerColumn]
+        
+        let head = SnakeHead(cell: headCell, direction: direction, parentNode: boardNode)
+        let body = SnakeBody(cell: bodyCell, direction: direction, parentNode: boardNode)
+        let tail = SnakeTail(cell: tailCell, direction: direction, parentNode: boardNode, previousOrgan: body)
+        
+        head.next = body
+        body.next = tail
+        
+        let snake = Snake(head: head, tail: tail)
+        snake.placeOnBoard()
+        
+        currentPosition = headCell.position
+        
+        self.snake = snake
+    }
+    
+    private func removeSnake() {
+        snake?.destroy()
+    }
+    
+    private func addFoodOnBoard() {
+        
+        guard foodList.count < Constant.maxFoodCountOnBoard else {
+            return
+        }
+        
+        guard let cell = BoardUtility.findRandomEmptyCell(cellList: cellList) else {
+            return
+        }
+        
+        let food = Food(cell: cell, parentNode: boardNode)
+        food.placeOnCell()
+        foodList.append(food)
+    }
+    
+    private func removeFoods() {
+        foodList.forEach {$0.destroy()}
+        foodList.removeAll()
+    }
+    
+    private func addBlockOnBoard() {
         let blockCount = Int.random(in: Constant.blockMinLimit...Constant.blockMaxLimit)
         
         var count = 0
@@ -215,7 +217,7 @@ class BoardMaster {
         }
     }
     
-    func removeBlock() {
+    private func removeBlock() {
         blockList.forEach {$0.destroy()}
         blockList.removeAll()
     }

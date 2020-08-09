@@ -13,6 +13,7 @@ enum SnakeDirection {
     
     var isVertical: Bool {self == .up || self == .up}
     var isHorizontal: Bool {self == .left || self == .right}
+    
     var angle: CGFloat {
         switch self {
         case .left: return CGFloat.pi * 0.5

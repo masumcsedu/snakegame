@@ -1,29 +1,41 @@
-# README #
+# The Classic Snake Game #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is the classic snake game with snake & food. Snake eat food & grow its size & increase points by 10. The snake should avoid obstacle, border edge & its trail.
 
-### What is this repository for? ###
+SpriteKit is used for this game.   
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Main parts of this game ###
 
-### How do I get set up? ###
+* Game Scene
+* Game Controller
+* Board Master
+* Board Cells
+* Snake
+* Food & Obstacle
+* Leader Board
+* Utility
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
 
-### Contribution guidelines ###
+#### Game Scene #
+Game Scene
 
-* Writing tests
-* Code review
-* Other guidelines
+#### Game Controller #
+Game Controller
 
-### Who do I talk to? ###
+#### Board Master #
+Board Master
 
-* Repo owner or admin
-* Other community or team contact
+#### Board Cells #
+Board Cells
+
+#### Snake #
+Snake
+
+#### Food & Obstacle #
+Food & Obstacle
+
+#### Leader Board #
+Leader Board
+
+#### Utility #
+Utility
