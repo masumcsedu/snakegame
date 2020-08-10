@@ -12,23 +12,48 @@ import XCTest
 class SnakeTests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testFood() {
+        let cell = Cell(position: .zero, row: 0, column: 0)
+        let food = Food(cell: cell, parentNode: nil)
+        food.placeOnCell()
+        
+        XCTAssert(cell.type == .food, "After placing food on cell doesn't change cell type.")
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testBlock() {
+        let cell = Cell(position: .zero, row: 0, column: 0)
+        let block = Block(cell: cell, parentNode: nil)
+        block.placeOnCell()
+        
+        XCTAssert(cell.type == .block, "After placing block on cell doesn't change cell type.")
+    }
+    
+    func testSnake() {
+        
+        let headCell = Cell(position: .zero, row: 0, column: 0)
+        let bodyCell = Cell(position: .zero, row: 1, column: 0)
+        let tailCell = Cell(position: .zero, row: 2, column: 0)
+        
+        let head = SnakeHead(cell: headCell, direction: .up, parentNode: nil)
+        let body = SnakeBody(cell: bodyCell, direction: .up, parentNode: nil)
+        let tail = SnakeTail(cell: tailCell, direction: .up, parentNode: nil, previousOrgan: body)
+        
+        head.next = body
+        body.next = tail
+        
+        let snake = Snake(head: head, tail: tail)
+        snake.placeOnBoard()
+        
+        XCTAssert(headCell.type == .snake, "After placing snake head on cell doesn't change cell type.")
+        XCTAssert(bodyCell.type == .snake, "After placing snake body on cell doesn't change cell type.")
+        XCTAssert(tailCell.type == .snake, "After placing snake tail on cell doesn't change cell type.")
     }
 
 }

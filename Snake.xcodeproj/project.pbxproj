@@ -40,6 +40,29 @@
 		8EB96DA224DD499D0072358E /* BoardUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96DA124DD499D0072358E /* BoardUtility.swift */; };
 		8EB96DA424DD66DC0072358E /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96DA324DD66DC0072358E /* Food.swift */; };
 		8EB96DA624DDEF440072358E /* FoodSpark.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8EB96DA524DDEF440072358E /* FoodSpark.sks */; };
+		8EF2689E24E1698400638F89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE804724DBCA0700FAA3FD /* AppDelegate.swift */; };
+		8EF2689F24E1698400638F89 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE804F24DBCA0700FAA3FD /* GameViewController.swift */; };
+		8EF268A024E1698400638F89 /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE807124DBD07600FAA3FD /* MainMenuScene.swift */; };
+		8EF268A124E1698400638F89 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE804D24DBCA0700FAA3FD /* GameScene.swift */; };
+		8EF268A224E1698400638F89 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96D8D24DCF87D0072358E /* GameController.swift */; };
+		8EF268A324E1698400638F89 /* BoardMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96D8F24DCF8B00072358E /* BoardMaster.swift */; };
+		8EF268A424E1698400638F89 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96D9A24DD379D0072358E /* Snake.swift */; };
+		8EF268A524E1698400638F89 /* SnakeOrgan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96D9224DD36370072358E /* SnakeOrgan.swift */; };
+		8EF268A624E1698400638F89 /* SnakeHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96D9424DD36530072358E /* SnakeHead.swift */; };
+		8EF268A724E1698400638F89 /* SnakeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96D9624DD36660072358E /* SnakeBody.swift */; };
+		8EF268A824E1698400638F89 /* SnakeTail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96D9824DD36960072358E /* SnakeTail.swift */; };
+		8EF268A924E1698400638F89 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96D9D24DD384B0072358E /* Cell.swift */; };
+		8EF268AA24E1698400638F89 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96DA324DD66DC0072358E /* Food.swift */; };
+		8EF268AB24E1698400638F89 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9329E224DE941700F9065C /* Block.swift */; };
+		8EF268AC24E1698400638F89 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE807A24DBD51700FAA3FD /* Global.swift */; };
+		8EF268AD24E1698400638F89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE807C24DBD7E500FAA3FD /* Constants.swift */; };
+		8EF268AE24E1698400638F89 /* GameKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E385D9F24E06EBB003E12C0 /* GameKitHelper.swift */; };
+		8EF268AF24E1698400638F89 /* GameUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE807524DBD30700FAA3FD /* GameUtility.swift */; };
+		8EF268B024E1698400638F89 /* SceneUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE807324DBD28200FAA3FD /* SceneUtility.swift */; };
+		8EF268B124E1698400638F89 /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE807724DBD41900FAA3FD /* ImageUtility.swift */; };
+		8EF268B224E1698400638F89 /* BoardUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB96DA124DD499D0072358E /* BoardUtility.swift */; };
+		8EF268B324E1698400638F89 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9329AE24DE533900F9065C /* Extensions.swift */; };
+		8EF268B524E1699F00638F89 /* BoardMasterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF268B424E1699F00638F89 /* BoardMasterTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +113,7 @@
 		8EB96DA124DD499D0072358E /* BoardUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardUtility.swift; sourceTree = "<group>"; };
 		8EB96DA324DD66DC0072358E /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		8EB96DA524DDEF440072358E /* FoodSpark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FoodSpark.sks; sourceTree = "<group>"; };
+		8EF268B424E1699F00638F89 /* BoardMasterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardMasterTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				8EAE806224DBCA0D00FAA3FD /* SnakeTests.swift */,
+				8EF268B424E1699F00638F89 /* BoardMasterTest.swift */,
 				8EAE806424DBCA0D00FAA3FD /* Info.plist */,
 			);
 			path = SnakeTests;
@@ -386,6 +411,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF268B324E1698400638F89 /* Extensions.swift in Sources */,
+				8EF268A624E1698400638F89 /* SnakeHead.swift in Sources */,
+				8EF268B224E1698400638F89 /* BoardUtility.swift in Sources */,
+				8EF268AD24E1698400638F89 /* Constants.swift in Sources */,
+				8EF268A424E1698400638F89 /* Snake.swift in Sources */,
+				8EF268B024E1698400638F89 /* SceneUtility.swift in Sources */,
+				8EF268A724E1698400638F89 /* SnakeBody.swift in Sources */,
+				8EF268AE24E1698400638F89 /* GameKitHelper.swift in Sources */,
+				8EF268A524E1698400638F89 /* SnakeOrgan.swift in Sources */,
+				8EF268A124E1698400638F89 /* GameScene.swift in Sources */,
+				8EF268A924E1698400638F89 /* Cell.swift in Sources */,
+				8EF268A224E1698400638F89 /* GameController.swift in Sources */,
+				8EF268AF24E1698400638F89 /* GameUtility.swift in Sources */,
+				8EF268AA24E1698400638F89 /* Food.swift in Sources */,
+				8EF268AC24E1698400638F89 /* Global.swift in Sources */,
+				8EF2689E24E1698400638F89 /* AppDelegate.swift in Sources */,
+				8EF268B124E1698400638F89 /* ImageUtility.swift in Sources */,
+				8EF2689F24E1698400638F89 /* GameViewController.swift in Sources */,
+				8EF268A024E1698400638F89 /* MainMenuScene.swift in Sources */,
+				8EF268A324E1698400638F89 /* BoardMaster.swift in Sources */,
+				8EF268B524E1699F00638F89 /* BoardMasterTest.swift in Sources */,
+				8EF268AB24E1698400638F89 /* Block.swift in Sources */,
+				8EF268A824E1698400638F89 /* SnakeTail.swift in Sources */,
 				8EAE806324DBCA0D00FAA3FD /* SnakeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
