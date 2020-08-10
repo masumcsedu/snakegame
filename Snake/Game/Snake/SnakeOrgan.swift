@@ -27,7 +27,7 @@ class SnakeOrgan {
     var node: SKNode?
     var next: SnakeOrgan?
     
-    // override this property from subclass
+    /// override this property from subclass
     var image: UIImage {UIImage()}
     
     init(cell: Cell, direction: SnakeDirection, parentNode: SKNode?) {

@@ -17,12 +17,16 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
             
+            /// Initialize game & set up UserDefaults with Global
             let global = Global.shared
+            
+            /// Creates game scenes
             global.prepare()
             
-            // Present the scene
+            /// Present the scene
             view.presentScene(global.mainMenuScene)
             
+            /// Uncomment following code to see game rendering performance
             //view.ignoresSiblingOrder = true
             //view.showsFPS = true
             //view.showsNodeCount = true
@@ -30,18 +34,14 @@ class GameViewController: UIViewController {
     }
 
     override var shouldAutorotate: Bool {
-        return true
+        return false
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
+        return .portrait
     }
 
     override var prefersStatusBarHidden: Bool {
-        return true
+        return false
     }
 }
