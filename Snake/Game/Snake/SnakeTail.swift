@@ -13,22 +13,23 @@ class SnakeTail: SnakeOrgan {
     
     override var image: UIImage {UIImage(named: "tail")!}
     
-    var previousOrgan: SnakeOrgan
+    weak var previousOrgan: SnakeOrgan?
     var isFoodFound: Bool = false
     
-    init(cell: Cell, direction: SnakeDirection, parentNode: SKNode?, previousOrgan: SnakeOrgan) {
+    init(cell: Cell, direction: SnakeDirection, parentNode: SKNode?, previousOrgan: SnakeOrgan?) {
         self.previousOrgan = previousOrgan
         super.init(cell: cell, direction: direction, parentNode: parentNode)
     }
     
     override func move(nextCell: Cell, direction: SnakeDirection) {
         if isFoodFound {
+            guard let previousOrgan = previousOrgan else {return}
             let body = SnakeBody(previousOrgan: previousOrgan)
             body.placeOnBoard()
             
             previousOrgan.next = body
             body.next = self
-            previousOrgan = body
+            self.previousOrgan = body
             
             isFoodFound = false
         } else {

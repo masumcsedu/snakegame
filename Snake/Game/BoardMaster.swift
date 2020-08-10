@@ -178,6 +178,7 @@ class BoardMaster {
     
     private func removeSnake() {
         snake?.destroy()
+        snake = nil
     }
     
     private func addFoodOnBoard() {
