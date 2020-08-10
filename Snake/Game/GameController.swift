@@ -86,14 +86,17 @@ extension GameController: BoardMasterDelegate {
         if isGameRunning {
             boardMaster.finishMove()
         }
-        isDirectionChangeWaitingForUse = false
-        if let pendingDirection = pendingDirection {
-            self.direction = pendingDirection
-            self.pendingDirection = nil
-        }
         
         boardMaster.moveSnake(direction: direction)
         timeSinceMove = 0
+        
+        if let pendingDirection = pendingDirection {
+            self.direction = pendingDirection
+            self.pendingDirection = nil
+            isDirectionChangeWaitingForUse = true
+        } else {
+            isDirectionChangeWaitingForUse = false
+        }
     }
     
     func boardMasterDidFindFood(cell: Cell) {

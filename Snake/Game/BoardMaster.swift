@@ -92,6 +92,7 @@ class BoardMaster {
         let snakeCell = snake.head.cell
         guard let nextCell = BoardUtility.findNextCell(cell: snakeCell, direction: direction, cellList: cellList) else {
             delegate?.boardMasterDidFindCollsion()
+            snake.changeHead(direction: direction)
             return
         }
         
@@ -110,6 +111,8 @@ class BoardMaster {
         
         if isValidMove {
             snake.move(nextCell: nextCell, direction: direction, isFoodFound: isFoodFound)
+        } else {
+            snake.changeHead(direction: direction)
         }
         
         nextPosition = nextCell.position.negetive()

@@ -17,4 +17,7 @@ class SnakeHead: SnakeOrgan {
         super.move(nextCell: nextCell, direction: direction)
     }
     
+    func change(direction: SnakeDirection) {
+        node?.zRotation = direction.angle
+    }
 }

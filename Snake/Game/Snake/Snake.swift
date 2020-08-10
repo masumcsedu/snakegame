@@ -43,6 +43,10 @@ class Snake {
         head.move(nextCell: nextCell, direction: direction)
     }
     
+    func changeHead(direction: SnakeDirection) {
+        head.change(direction: direction)
+    }
+    
     func finishMove() {
         head.finishMove()
     }
